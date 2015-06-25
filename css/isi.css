@@ -1,0 +1,195 @@
+.inside-isi {
+    margin: 0 auto;
+}
+
+.isi_wrapper h2 {
+    font-size: 15px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.isi_wrapper a:hover {
+    text-decoration: underline
+}
+
+#isiControlWrapper .green_bg h3 {
+    color: #1B9A00;
+    font-size: 14px;
+    margin: 0;
+    font-weight: bold;
+    padding: 0;
+    text-decoration: none;
+}
+
+.isi_wrapper p {
+    color: #333333;
+    font-size: 12px;
+    line-height: 18px;
+    margin: 5px 0 0 0;
+    padding: 0;
+}
+/*.isi_wrapper p.blck{color: #333;}*/
+/*.isi_wrapper {
+    border: 1px solid #ccc;
+}*/
+
+.isi_wrapper .isi_padded {
+    padding: 6px;
+}
+
+.isi_wrapper .isi,
+.isi_wrapper .indication {
+    background: #eff6fa;
+    padding: 8px 15px;
+    border: none;
+}
+
+.isi_wrapper .indication {
+    margin-top: 5px;
+}
+
+.isi_wrapper .nonblue {
+    padding-left: 15px;
+}
+
+.isi_wrapper .nonblue a {
+    color: #1c3f95;
+}
+
+.isi_wrapper ul {
+    margin: 0;
+    padding: 5px;
+}
+
+.footer_isi {
+    margin-top: 15px;
+}
+
+.isi_wrapper li {
+    color: #666;
+    font-size: 12px;
+    line-height: 20px;
+    list-style: none outside none;
+    padding-left: 15px;
+    margin-left: 0px;
+    background: url(../images/black-bullet.png) left 7px no-repeat;
+}
+
+.green_bg {
+    background: #EBF8ED url(../images/re-design/mobile-icon.png) 20px center no-repeat;
+    margin-top: 20px;
+    padding: 16px;
+    padding-left: 40px
+}
+
+.footer_isi .left,
+.footer_isi .right {
+    float: left;
+    width: 48%;
+    margin-left: 18px;
+}
+
+.footer_isi .left p {
+    margin-bottom: 10px;
+    line-height: 18px;
+}
+
+.footer_isi .left p a {
+    color: #1C3F95
+}
+
+.footer_isi .right {
+    width: 450px;
+    float: right;
+    margin-left: 0;
+}
+
+.footer_isi .right #helpfulAnsLogo {
+    width: auto
+}
+
+.footer_isi .right #helpfulAnsText {
+    width: 257px
+}
+
+.footer_isi .right #helpfulAnsText h6 {
+    font-size: 16px;
+    color: #0594d1;
+    font-weight: normal;
+    padding-bottom: 5px
+}
+
+.footer_isi .right #helpfulAnsText sup {
+    font-size: 60%;
+    font-size: 75%\9;
+    *top: -1px;
+}
+
+.blue-green {
+    color: #2691d4;
+}
+
+.add p {
+    color: #666666;
+    font-size: 11px;
+    margin: 10px 0 0 0;
+}
+
+.add span {
+    margin-left: 15px;
+}
+
+#footer {
+    clear: both;
+    display: block;
+    margin: 30px 3px -20px 0;
+    *margin: 20px 3px 0 0;
+    padding: 15px 15px 15px 38px;
+    background: #eeeeee;
+}
+
+#footerContent p {
+    margin: 0;
+}
+
+#footer p {
+    float: left;
+    width: 5%;
+    border-right: 1px solid #999999;
+    margin-right: 15px;
+}
+
+#footer a {
+    color: #666666;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+#footer p a {
+    display: block;
+    line-height: 0;
+    padding: 5px 0;
+}
+
+#footer p a:hover {
+    text-decoration: underline
+}
+
+#footer > div {
+    line-height: 37px;
+}
+
+.overlay-isi > div {
+    width: auto !important
+}
+
+.overlay-isi .green_bg,
+.overlay-isi .footer_isi,
+.overlay-isi #footer {
+    display: none !important
+}
+
+#footer a.adChoices {
+    background: url(../images/other/addchoice-icon.png) left center no-repeat;
+    padding-left: 20px;
+}
