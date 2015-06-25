@@ -1,4 +1,5 @@
-$(document).ready(function() {
+$(document).ready(function () {
+    'use strict';
     var winHeight = $(window).height();
     var isiHeight = winHeight * (0.33);
     var isiHeight_expand = winHeight - 160; // winHeight * (0.55);
@@ -6,8 +7,6 @@ $(document).ready(function() {
     $(".isi-head a.colapse-close").hide();
     $(".isi-head a.colapse-close").hide();
     $(".content01").mCustomScrollbar();
-
-    loadISI();
 
     $(".content01").bind("mousewheel DOMMouseScroll", function (e) {
         var delta = e.wheelDelta || -e.detail;
@@ -45,21 +44,23 @@ $(document).ready(function() {
     });
 
     function loadISI() {
-        isiHeight = $(window).height() / 5.5;
+        isiHeight = $(window).height() / (5.5);
         $(".content01").css({ "height": isiHeight });
         $(".colapse-close").click();
-    };
+    }
 
     function footerHideShow() {
         var winHi = $(window).height() * (0.33);
-        if ($("#idfloatisi1").offset() != null) {
+        if ($("#idfloatisi1").offset() !== null) {
             if ($(window).scrollTop() > (($("#idfloatisi1").offset().top - $(window).height()) + winHi)) {
                 $("#idfloatisi").css({ "display": "none" });
             } else {
                 $("#idfloatisi").css({ "display": "block" });
             }
         }
-    };
+    }
+
+    loadISI();
 
     $(window).resize(function () {
         loadISI();
