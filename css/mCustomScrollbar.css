@@ -236,11 +236,11 @@
 }
 
 .isi-head a.expand-open {
-    background: url(../images/float-isi-img/plus.png) no-repeat;
+    background: url(../images/plus.png) no-repeat;
 }
 
 .isi-head a.colapse-close {
-    background: url(../images/float-isi-img/minus.png) no-repeat;
+    background: url(../images/minus.png) no-repeat;
 }
 
 .isi-main-cont {
