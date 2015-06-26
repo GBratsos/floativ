@@ -1,0 +1,37 @@
+#floativ {
+    position: fixed;
+    width: 100%;
+    margin: 0 auto;
+    z-index: 9999;
+    bottom: 0;
+    left: 0;
+}
+
+.floativ-container {
+    background: #fff;
+    box-shadow: 0 0 12px #A6A5A6;
+    position: relative
+    overflow: auto;
+    margin: auto;
+}
+
+.floativ-head {
+    width: 21px;
+    position: absolute;
+    right: 6px;
+    top: 8px;
+    z-index: 1;
+}
+
+.floativ-head button {
+    width: 21px;
+    height: 21px;
+    display: block;
+    margin: 0 auto;
+    text-decoration: none;
+    font-weight: bold
+}
+
+.floativ-body {
+    margin-left: 0!important;
+}

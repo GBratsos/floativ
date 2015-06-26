@@ -1,83 +1,90 @@
 $(document).ready(function () {
     'use strict';
     var winHeight = $(window).height();
-    var isiHeight = winHeight * (0.33);
-    var isiHeight_expand = winHeight - 160; // winHeight * (0.55);
+    var floativHeight = winHeight * (0.33);
+    var floativHeight_expand = winHeight - 160;
 
-    $(".isi-head a.colapse-close").hide();
-    $(".isi-head a.colapse-close").hide();
-    $(".content01").mCustomScrollbar();
+    $(".floativ-collapse").hide();
 
-    $(".content01").bind("mousewheel DOMMouseScroll", function (e) {
+    $("#floativ").mCustomScrollbar({
+        theme: 'dark'
+    });
+
+    // Prevent page scrolling in floativ
+    $("#floativ").bind("mousewheel DOMMouseScroll", function (e) {
         var delta = e.wheelDelta || -e.detail;
         this.scrollTop += (delta < 0 ? 1 : -1) * 30;
         e.preventDefault();
     });
 
-    $(".isi-head a.expand-open").click(function (e) {
+    // Click expand button
+    $(".floativ-expand").click(function (e) {
         e.preventDefault();
-        $(".isi-head a.colapse-close").show();
+        $(".floativ-collapse").show();
         $(this).hide();
-        $(".scroll-for-line").hide();
-        isiHeight_expand = $(window).height() - 160;
-        $(".content01").animate({
-            height: isiHeight_expand
+        floativHeight_expand = $(window).height() - 160;
+        $("#floativ").animate({
+            height: floativHeight_expand
         }, "slow", function () {
             $(this).mCustomScrollbar("update");
         });
-        $(".mCustomScrollBox > .mCSB_scrollTools").css({ "height": "92%" });
-        $(".float-isi .isi_wrapper").css({ "margin": "0 25px 0 25px" });
+        $(".mCSB_scrollTools").css({"height": "92%"});
+        $(".floativ-body").css({"margin": "0 25px 0 25px"});
     });
 
-    $(".isi-head a.colapse-close").click(function (e) {
+    //  Click collapse button
+    $(".floativ-collapse").click(function (e) {
         e.preventDefault();
-        $(".isi-head a.expand-open, .scroll-for-line").show();
+        $(".floativ-expand").show();
         $(this).hide();
 
-        $(".content01").animate({
-            height: isiHeight
+        $("#floativ").animate({
+            height: floativHeight
         }, "slow", function () {
             $(this).mCustomScrollbar("update");
         });
-        $(".mCustomScrollBox > .mCSB_scrollTools").css({ "height": "87%" });
-        $(".float-isi .isi_wrapper").css({ "margin": "0 0px 0 25px" });
+        $(".mCSB_scrollTools").css({"height": "87%"});
+        $(".floativ-body").css({"margin": "0 0px 0 25px"});
     });
 
-    function loadISI() {
-        isiHeight = $(window).height() / (5.5);
-        $(".content01").css({ "height": isiHeight });
-        $(".colapse-close").click();
+    // Load/Show the float box
+    function loadFloativ() {
+        floativHeight = $(window).height() / (5.5);
+        $("#floativ").css({"height": floativHeight});
+        $(".floativ-collapse").click();
     }
 
-    function footerHideShow() {
+    // Toggle the visibility of the float box based on window position and the breakpoint
+    function floativToggle() {
         var winHi = $(window).height() * (0.33);
-        if ($("#idfloatisi1").offset() !== null) {
-            if ($(window).scrollTop() > (($("#idfloatisi1").offset().top - $(window).height()) + winHi)) {
-                $("#idfloatisi").css({ "display": "none" });
+        if ($("#floativ-break").offset() !== null) {
+            if ($(window).scrollTop() > (($("#floativ-break").offset().top - $(window).height()) + winHi)) {
+                $("#floativ").css({"display": "none"});
             } else {
-                $("#idfloatisi").css({ "display": "block" });
+                $("#floativ").css({"display": "block"});
             }
         }
     }
 
-    loadISI();
+    // Instantiate floativ
+    loadFloativ();
 
     $(window).resize(function () {
-        loadISI();
+        loadFloativ();
         setTimeout(function () {
-            footerHideShow();
+            floativToggle();
         }, 1000);
     });
 
     $(window).scroll(function () {
-        footerHideShow();
+        floativToggle();
     });
 
     setTimeout(function () {
-        $("idfloatisi").css({ "display": "none" });
+        $("#floativ").css({"display": "none"});
     }, 50);
 
     setTimeout(function () {
-        footerHideShow();
+        floativToggle();
     }, 1000);
 });
