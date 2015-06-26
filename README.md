@@ -6,13 +6,12 @@ description will be added soon
 - refactor javascript so that it becomes a library/object that can be customized
   - have variables that can be initialized by user input
   - add events (?)
-- remove dependencies or create a npm package to include them
 - refactor class and id names
-- add support for zurb
+- add Zurb Foundation's template
+- add Bootstrap' template
 - create git-site for the library
 - replace lorem ipsum text with proper readme/guidelines
 - add support for most browsers
-- use latest javascript dependencies
 - make it responsive or at least adaptive
-- replace images (plus, minus) with html/css (buttons maybe)
+- Find and add https://github.com/rochal/jQuery-slimScroll/ npm package
 - add tests (?)

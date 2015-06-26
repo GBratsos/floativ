@@ -10,7 +10,7 @@
 .floativ-container {
     background: #fff;
     box-shadow: 0 0 12px #A6A5A6;
-    position: relative
+    position: relative;
     overflow: auto;
     margin: auto;
 }

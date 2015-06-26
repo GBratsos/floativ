@@ -1,16 +1,16 @@
 {
-  "name": "floativ",
-  "version": "1.0.1",
-  "description": "floativ is a floating box at the end of the screen that contains text, among other things, which can be displayed while browsing a web page. This floating box disappears when the user reaches an element with a specific id.",
-  "main": "floativ.js",
-  "scripts": {
-    "test": ""
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/GBratsos/floativ.git"
-  },
-  "keywords": [
+    "name": "floativ",
+    "version": "1.0.1",
+    "description": "floativ is a floating box at the end of the screen that contains text, among other things, which can be displayed while browsing a web page. This floating box disappears when the user reaches an element with a specific id.",
+    "main": "floativ.js",
+    "scripts": {
+        "test": ""
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/GBratsos/floativ.git"
+    },
+    "keywords": [
     "float",
     "floativ",
     "javascript",
@@ -18,14 +18,15 @@
     "text",
     "box"
   ],
-  "author": "Panagiotis Papadatis <hennett.afa@gmail.com>, George Bratsos <geobratsos@gmail.com>",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/GBratsos/floativ/issues"
-  },
-  "homepage": "https://github.com/GBratsos/floativ",
-  "dependencies": {
-    "jquery": "<2.x.x",
-    "mCustomScrollbar": "git://github.com/malihu/malihu-custom-scrollbar-plugin.git#master"
-  }
+    "author": "Panagiotis Papadatis <hennett.afa@gmail.com>, George Bratsos <geobratsos@gmail.com>",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/GBratsos/floativ/issues"
+    },
+    "homepage": "https://github.com/GBratsos/floativ",
+    "devDependencies": {
+        "jquery": "<2.x.x",
+        "mCustomScrollbar": "git://github.com/malihu/malihu-custom-scrollbar-plugin.git#master",
+        "font-awesome": "^4.3.0"
+    }
 }
