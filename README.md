@@ -15,3 +15,4 @@ description will be added soon
 - use latest javascript dependencies
 - make it responsive or at least adaptive
 - replace images (plus, minus) with html/css (buttons maybe)
+- add tests (?)
