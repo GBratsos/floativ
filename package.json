@@ -1,16 +1,16 @@
 {
-    "name": "floativ",
-    "version": "1.0.1",
+  "name": "floativ",
+  "version": "1.0.2",
     "description": "floativ is a floating scroll-box at the bottom of the screen of your site that contains text, among other things, which can be displayed while browsing a web page. This floating scroll-box disappears when the user reaches an element with a specific id.",
-    "main": "floativ.js",
-    "scripts": {
-        "test": ""
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/GBratsos/floativ.git"
-    },
-    "keywords": [
+  "main": "floativ.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GBratsos/floativ.git"
+  },
+  "keywords": [
     "float",
     "floativ",
     "javascript",
@@ -19,14 +19,14 @@
     "box"
   ],
     "author": "Panagiotis Papadatis <hennett.afa@gmail.com>, George Bratsos <geobratsos@gmail.com>, George Raptis <georapbox@gmail.com>",
-    "license": "GPL-3.0",
-    "bugs": {
-        "url": "https://github.com/GBratsos/floativ/issues"
-    },
-    "homepage": "https://github.com/GBratsos/floativ",
-    "devDependencies": {
-        "jquery": "<2.x.x",
-        "mCustomScrollbar": "git://github.com/malihu/malihu-custom-scrollbar-plugin.git#master",
-        "font-awesome": "^4.3.0"
-    }
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/GBratsos/floativ/issues"
+  },
+  "homepage": "https://github.com/GBratsos/floativ",
+  "devDependencies": {
+    "jquery": "<2.x.x",
+    "slimscroll": "git://github.com/rochal/jQuery-slimScroll.git#master",
+    "font-awesome": "^4.3.0"
+  }
 }
