@@ -35,3 +35,12 @@
 .floativ-body {
     margin-left: 0!important;
 }
+
+.shadow
+{
+    position:absolute;
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+}
