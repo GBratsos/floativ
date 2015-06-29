@@ -12,8 +12,8 @@
         floativ: function(options) {
             var defaults = {
                 breakPoint: '#floativ-break', // The class where we hide our element
-                height: 'auto', // Height of the float box
-                width: 'auto', // Width of the float box
+                height: 250, // Height of the float box
+                width: 500, // Width of the float box
                 heightPercentance: 0.33, // Visible height percentage of the box
                 widthPercentance: 0.33, // Visible width percentage of the box
                 heightExpand: 160, // Expandable height
@@ -21,37 +21,91 @@
                 animate: 'slow' // Animation method
             };
 
+            defaults.floativHeight = $(window).height() * defaults.heightPercentance; // Calculate floativ height
+            defaults.floativHeight_expand = $(window).height() - defaults.heightExpand; // Calculate floativ expand height
+
             var o = $.extend(defaults, options);
 
             // Do it for every element that matches selector
             this.each(function(){
                 var $this = $(this); // Assign current element to variable
-                var wind = $(window);
-                var winHeight = wind.height(); // Get window height
-                var floativHeight = winHeight * parseInt(o.heightPercentance); // Calculate floativ height
-                var floativHeight_expand = winHeight - parseInt(o.heightExpand); // Calculate floativ expand height
                 $this.data('floativ', o); // Save settings
-                $($this).find('.floativ-collapse').hide(); // Hide minus-collapse sign
+                $this.find('.floativ-collapse').hide(); // Hide minus-collapse sign
                 $this.find('.floativ-body').slimScroll(); // Apply slimscroll on element
 
-                floativLoad(winHeight);
+                floativLoad();
 
-                function floativLoad(winHeight){
-                    floativHeight = winHeight / (5.5);
-                    $this.find('.floativ-body').css({"height": floativHeight});
+                function floativLoad(){
+                    floativHeight = $(window).height() / (5.5);
+                    $this.find('.floativ-body').css({"height": floativHeight + 'px'});
                     $this.find(".floativ-collapse").click();
                 }
 
-                function floativToggle(floativHeight, wind){
+                function floativToggle(){
                     var settings = $this.data('floativ');
-                    if ($("#floativ-break").offset() !== null) {
-                        if (wind.scrollTop() > ((settings.breakPoint.offset().top - wind.height()) + floativHeight)) {
+                    if ($(settings.breakPoint).offset() !== null) {
+                        if ($(window).scrollTop() > (($(settings.breakPoint).offset().top - $(window).height()) + settings.floativHeight)) {
                             $this.css({"display": "none"});
                         } else {
                             $this.css({"display": "block"});
                         }
                     }
                 }
+
+                $this.find('.floativ-body').bind('mousewheel DOMMouseScroll', function (e) {
+                    var delta = e.wheelDelta || -e.detail;
+                    this.scrollTop += (delta < 0 ? 1 : -1) * 30;
+                    e.preventDefault();
+                });
+
+                // Click expand button
+                $this.find(".floativ-expand").click(function (e) {
+                    // debugger;
+                    e.preventDefault();
+                    $this.find(".floativ-collapse").show();
+                    $this.find(".floativ-expand").hide();
+                    o.floativHeight_expand = $(window).height() - 160;
+                    $this.find(".floativ-body").animate({
+                        height: o.floativHeight_expand
+                    }, o.animate, function () {
+                        $this.slimScroll("update");
+                    });
+                    $this.find(".mCSB_scrollTools").css({"height": "92%"});
+                    $this.find(".floativ-body").css({"margin": "0 25px 0 25px"});
+                });
+
+                //  Click collapse button
+                $this.find(".floativ-collapse").click(function (e) {
+                    e.preventDefault();
+                    $this.find(".floativ-expand").show();
+                    $this.find(".floativ-collapse").hide();
+                    $this.find(".floativ-body").animate({
+                        height: o.floativHeight
+                    }, o.animate, function () {
+                        $this.slimScroll("update");
+                    });
+                    $this.find(".mCSB_scrollTools").css({"height": "87%"});
+                    $this.find(".floativ-body").css({"margin": "0 0px 0 25px"});
+                });
+
+                $(window).resize(function () {
+                    loadFloativ();
+                    setTimeout(function () {
+                        floativToggle();
+                    }, 1000);
+                });
+
+                $(window).scroll(function () {
+                    floativToggle();
+                });
+
+                setTimeout(function () {
+                    $("#floativ").css({"display": "none"});
+                }, 50);
+
+                setTimeout(function () {
+                    floativToggle();
+                }, 1000);
             });
 
             // Maintain chainablitiy
@@ -64,52 +118,3 @@
     });
 
 })(jQuery);
-
-//     // Click expand button
-//     $(".floativ-expand").click(function (e) {
-//         e.preventDefault();
-//         $(".floativ-collapse").show();
-//         $(this).hide();
-//         floativHeight_expand = $(window).height() - 160;
-//         $(".floativ-body").animate({
-//             height: floativHeight_expand
-//         }, "slow", function () {
-//             $(this).slimScroll("update");
-//         });
-//         $(".mCSB_scrollTools").css({"height": "92%"});
-//         $(".floativ-body").css({"margin": "0 25px 0 25px"});
-//     });
-
-//     //  Click collapse button
-//     $(".floativ-collapse").click(function (e) {
-//         e.preventDefault();
-//         $(".floativ-expand").show();
-//         $(this).hide();
-
-//         $(".floativ-body").animate({
-//             height: floativHeight
-//         }, "slow", function () {
-//             $(this).slimScroll("update");
-//         });
-//         $(".mCSB_scrollTools").css({"height": "87%"});
-//         $(".floativ-body").css({"margin": "0 0px 0 25px"});
-//     });
-
-//     $(window).resize(function () {
-//         loadFloativ();
-//         setTimeout(function () {
-//             floativToggle();
-//         }, 1000);
-//     });
-
-//     $(window).scroll(function () {
-//         floativToggle();
-//     });
-
-//     setTimeout(function () {
-//         $("#floativ").css({"display": "none"});
-//     }, 50);
-
-//     setTimeout(function () {
-//         floativToggle();
-//     }, 1000);
