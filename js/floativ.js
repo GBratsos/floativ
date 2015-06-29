@@ -3,7 +3,7 @@
  * displayed while browsing a web page. This floating box disappears when the user reaches an element with
  * a specific id.
  *
- * Version 1.0.2
+ * Version 1.0.4
  *
  */
 (function ($) {
@@ -11,14 +11,14 @@
     $.fn.extend({
         floativ: function(options) {
             var defaults = {
-                breakPoint: '#floativ-break', // The class where we hide our element
+                breakPoint: "#floativ-break", // The class where we hide our element
                 height: 250, // Height of the float box
                 width: 500, // Width of the float box
                 heightPercentance: 0.33, // Visible height percentage of the box
                 widthPercentance: 0.33, // Visible width percentage of the box
                 heightExpand: 160, // Expandable height
                 widthExpand: 160, // Expandable width
-                animate: 'slow' // Animation method
+                animate: "slow" // Animation method
             };
 
             defaults.floativHeight = $(window).height() * defaults.heightPercentance; // Calculate floativ height
@@ -29,19 +29,21 @@
             // Do it for every element that matches selector
             this.each(function(){
                 var $this = $(this); // Assign current element to variable
-                $this.data('floativ', o); // Save settings
-                $('.floativ-collapse', $this).hide(); // Hide minus-collapse sign
-                $('.floativ-body', $this).slimScroll(); // Apply slimscroll on element
+                $this.data("floativ", o); // Save settings
+                $(".floativ-collapse", $this).hide(); // Hide minus-collapse sign
+                $this.mCustomScrollbar({
+                    theme: "dark-3"
+                }); // Apply mCustomScrollbar on element
 
                 floativLoad();
 
                 function floativLoad(){
                     floativHeight = $(window).height() / (5.5);
-                    $this.css({"height": floativHeight + 'px'});
+                    $this.css({"height": floativHeight + "px"});
                 }
 
                 function floativToggle(){
-                    var settings = $this.data('floativ');
+                    var settings = $this.data("floativ");
                     if ($(settings.breakPoint).offset() !== null) {
                         if ($(window).scrollTop() > (($(settings.breakPoint).offset().top - $(window).height()) + settings.floativHeight)) {
                             $this.css({"display": "none"});
@@ -56,9 +58,9 @@
                     e.preventDefault();
                     $(".floativ-collapse", $this).show();
                     $(".floativ-expand", $this).hide();
-                    $(".floativ-body", $this).animate({"height": o.floativHeight_expand + "px"}, o.animate, function() {
-                        $this.slimScroll();
-                    }).css({"margin": "0 25px 0 25px"});
+                    $this.animate({"height": o.floativHeight_expand + "px"}, o.animate, function() {
+                        $this.mCustomScrollbar("update");
+                    });
                 });
 
                 //  Click collapse button
@@ -66,9 +68,9 @@
                     e.preventDefault();
                     $(".floativ-expand", $this).show();
                     $(".floativ-collapse", $this).hide();
-                    $(".floativ-body", $this).animate({"height": o.floativHeight + "px"}, o.animate, function() {
-                        $this.slimScroll();
-                    }).css({"margin": "0 0px 0 25px"});
+                    $this.animate({"height": o.floativHeight + "px"}, o.animate, function() {
+                        $this.mCustomScrollbar("update");
+                    });
                 });
 
                 $(window).resize(function () {
