@@ -24,21 +24,20 @@
             defaults.floativHeight = $(window).height() * defaults.heightPercentance; // Calculate floativ height
             defaults.floativHeight_expand = $(window).height() - defaults.heightExpand; // Calculate floativ expand height
 
-            var o = $.extend(defaults, options);
+            var o = $.extend(defaults, options); // Merge defaults with user inputs
 
             // Do it for every element that matches selector
             this.each(function(){
                 var $this = $(this); // Assign current element to variable
                 $this.data('floativ', o); // Save settings
-                $this.find('.floativ-collapse').hide(); // Hide minus-collapse sign
-                $this.find('.floativ-body').slimScroll(); // Apply slimscroll on element
+                $('.floativ-collapse', $this).hide(); // Hide minus-collapse sign
+                $('.floativ-body', $this).slimScroll(); // Apply slimscroll on element
 
                 floativLoad();
 
                 function floativLoad(){
                     floativHeight = $(window).height() / (5.5);
-                    $this.find('.floativ-body').css({"height": floativHeight + 'px'});
-                    $this.find(".floativ-collapse").click();
+                    $this.css({"height": floativHeight + 'px'});
                 }
 
                 function floativToggle(){
@@ -52,40 +51,24 @@
                     }
                 }
 
-                $this.find('.floativ-body').bind('mousewheel DOMMouseScroll', function (e) {
-                    var delta = e.wheelDelta || -e.detail;
-                    this.scrollTop += (delta < 0 ? 1 : -1) * 30;
-                    e.preventDefault();
-                });
-
                 // Click expand button
-                $this.find(".floativ-expand").click(function (e) {
-                    // debugger;
+                $(".floativ-expand", $this).click(function (e) {
                     e.preventDefault();
-                    $this.find(".floativ-collapse").show();
-                    $this.find(".floativ-expand").hide();
-                    o.floativHeight_expand = $(window).height() - 160;
-                    $this.find(".floativ-body").animate({
-                        height: o.floativHeight_expand
-                    }, o.animate, function () {
-                        $this.slimScroll("update");
-                    });
-                    $this.find(".mCSB_scrollTools").css({"height": "92%"});
-                    $this.find(".floativ-body").css({"margin": "0 25px 0 25px"});
+                    $(".floativ-collapse", $this).show();
+                    $(".floativ-expand", $this).hide();
+                    $(".floativ-body", $this).animate({"height": o.floativHeight_expand + "px"}, o.animate, function() {
+                        $this.slimScroll();
+                    }).css({"margin": "0 25px 0 25px"});
                 });
 
                 //  Click collapse button
-                $this.find(".floativ-collapse").click(function (e) {
+                $(".floativ-collapse", $this).click(function (e) {
                     e.preventDefault();
-                    $this.find(".floativ-expand").show();
-                    $this.find(".floativ-collapse").hide();
-                    $this.find(".floativ-body").animate({
-                        height: o.floativHeight
-                    }, o.animate, function () {
-                        $this.slimScroll("update");
-                    });
-                    $this.find(".mCSB_scrollTools").css({"height": "87%"});
-                    $this.find(".floativ-body").css({"margin": "0 0px 0 25px"});
+                    $(".floativ-expand", $this).show();
+                    $(".floativ-collapse", $this).hide();
+                    $(".floativ-body", $this).animate({"height": o.floativHeight + "px"}, o.animate, function() {
+                        $this.slimScroll();
+                    }).css({"margin": "0 0px 0 25px"});
                 });
 
                 $(window).resize(function () {
@@ -100,7 +83,7 @@
                 });
 
                 setTimeout(function () {
-                    $("#floativ").css({"display": "none"});
+                    $this.css({"display": "none"});
                 }, 50);
 
                 setTimeout(function () {
