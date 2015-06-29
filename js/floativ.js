@@ -53,6 +53,13 @@
                     }
                 }
 
+                // Attach a handler for end-of-box
+                $('.floativ-body', $this).bind('mousewheel DOMMouseScroll', function (e) {
+                    var delta = e.wheelDelta || -e.detail;
+                    this.scrollTop += (delta < 0 ? 1 : -1) * 30;
+                    e.preventDefault();
+                });
+
                 // Click expand button
                 $(".floativ-expand", $this).click(function (e) {
                     e.preventDefault();
