@@ -18,7 +18,10 @@
                 widthPercentance: 0.33, // Visible width percentage of the box
                 heightExpand: 160, // Expandable height
                 widthExpand: 160, // Expandable width
-                animate: "slow" // Animation method
+                animate: "slow", // Animation method
+                scrollbar: { // mCustomScrollbar (default) options
+                    theme: "dark-3"
+                }
             };
 
             defaults.floativHeight = $(window).height() * defaults.heightPercentance; // Calculate floativ height
@@ -31,9 +34,7 @@
                 var $this = $(this); // Assign current element to variable
                 $this.data("floativ", o); // Save settings
                 $(".floativ-collapse", $this).hide(); // Hide minus-collapse sign
-                $this.mCustomScrollbar({
-                    theme: "dark-3"
-                }); // Apply mCustomScrollbar on element
+                $this.mCustomScrollbar(o.scrollbar); // Apply mCustomScrollbar on element
 
                 floativLoad();
 
