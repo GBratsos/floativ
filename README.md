@@ -15,15 +15,13 @@ floativ is a floating scroll-box at the bottom of the screen of your site that c
 
 ## TODO ##
 - add proper readme
-- refactor javascript so that it becomes a library/object that can be customized
-  - have variables that can be initialized by user input
-  - add events (?)
-- refactor class and id names
-- add Zurb Foundation's template
-- add Bootstrap' template
+- ~~refactor javascript so that it becomes a library/object that can be customized~~ [DONE]
+  - ~~have variables that can be initialized by user input~~ [DONE]
+  - ~~add events (?)~~ [WON'T IMPLEMENT: mCustomScrollbar has events on it's own]
+- ~~refactor class and id names~~ [DONE]
+- ~~add Zurb Foundation's template~~ [WON'T IMPLEMENT: universal support]
+- ~~add Bootstrap' template~~ [WON'T IMPLEMENT: universal support]
 - create git-site for the library
 - replace lorem ipsum text with proper readme/guidelines
 - add support for most browsers
 - make it responsive or at least adaptive
-- Find and add https://github.com/rochal/jQuery-slimScroll/ npm package
-- add tests (?)
