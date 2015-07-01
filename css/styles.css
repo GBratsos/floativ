@@ -125,9 +125,12 @@ ul li span, p span {
     padding: 10px 0;
 }
 
-footer aside:nth-child(1) {
-    float: left;
-    width: 80%
+footer aside {
+    display: inline-block;
+}
+
+footer aside:nth-child(3) {
+    float: right;
 }
 
 footer article p,
@@ -147,13 +150,7 @@ footer article p a:focus {
    Media Queries
    ========================================================================== */
 
-@media only screen and (min-width:320px) {
-    footer aside:nth-child(1) {
-        width: 100%;
-    }
-}
-
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
     /* ============
     WIDE: Main
    ============ */
@@ -161,6 +158,9 @@ footer article p a:focus {
     .main article {
         float: left;
         width: 57%;
+    }
+        footer aside {
+        width: 100%;
     }
 }
 
@@ -178,10 +178,6 @@ footer article p a:focus {
     .main article {
         float: left;
         width: 100%;
-    }
-    footer aside:nth-child(1) {
-    float: left;
-    width: 80%;
     }
 }
 
