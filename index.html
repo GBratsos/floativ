@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>floativ.js: How it works</title>
+    <title>floativ.js</title>
     <meta name="description" content="">
     <meta name="keywords" content="HTML,CSS,XML,JavaScript">
     <meta name="author" content="Hege Refsnes">
@@ -22,9 +22,9 @@
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <!-- jQuery mCustomScrollbar -->
     <link rel="stylesheet" href="node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
-    <!-- floativ -->
+    <!-- floativ css -->
     <link rel="stylesheet" href="css/floativ.css">
-    <!-- Website styles -->
+    <!-- website css -->
     <link rel="stylesheet" href="css/styles.css">
     <!-- Modernizr js -->
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
@@ -39,7 +39,7 @@
     <!-- Header -->
     <div class="header-container">
         <header class="wrapper clearfix">
-            <h1 class="title">floativ.js: How it works<br><span>The awesome floating scroll-box.</span></h1>
+            <h1 class="title">floativ.js<br><span>The awesome responsive floating scroll-box.</span></h1>
         </header>
     </div>
 
@@ -49,7 +49,7 @@
             <div class="main wrapper clearfix">
                 <section>
                     <article>
-                        <p>floativ is a floating scroll-box at the bottom of the screen of your site that contains text, among other things, which can be displayed while browsing a web page. This floating scroll-box disappears when the user reaches an element with a specific id.</p>
+                        <p>floativ is a responsive floating scroll-box at the bottom of the screen of your site that contains text, among other things, which can be displayed while browsing a web page. This floating scroll-box disappears when the user reaches an element with a specific id.</p>
                     </article>
                     <article>
                         <header>
@@ -57,7 +57,7 @@
                             <hr>
                         </header>
                         <ol>
-                            <li>Download and install <a href="https://nodejs.org/">NodeJS</a>.
+                            <li>Download and install <a href="https://nodejs.org/" target="_blank">NodeJS</a>.
                             </li>
                             <li>Clone or Download project straight from GitHub.</li>
                             <li>Extract the zip file and start working.</li>
@@ -80,55 +80,52 @@
                             <h2>NPM Package</h2>
                             <hr>
                         </header>
-                        <p>You can find and install floativ from npm <a href="https://www.npmjs.com/package/floativ">here</a>.</p>
+                        <p>You can find and install floativ from npm <a href="https://www.npmjs.com/package/floativ" target="_blank">here</a>.</p>
                     </article>
                     <article>
                         <header>
                             <h2>Usage</h2>
                             <hr>
                         </header>
-                        <p>$(selector).floativ()</p>
+                        <p>Put this <span>$("#floativ").floativ();</span> inside <span>script tags</span> at the bottom of your HTML file.</p>
                         <p>You can also specify parameters, such as:</p>
                         <ul>
-                            <li>breakpoint: the class where we hide the floating box</li>
-                            <li>height: the starting height of the box</li>
-                            <li>width: the starting width of the box</li>
-                            <li>heightPercentance: the collapse percentance height</li>
-                            <li>widthPercentance: the collapse percentance width</li>
-                            <li>heightExpand: the expand height</li>
-                            <li>widthExpand: the expand width</li>
-                            <li>animate: the expand-collapse animation</li>
-                            <li>scrollbar: see <a href="https://github.com/malihu/malihu-custom-scrollbar-plugin" target="_blank">mCustomScrollbar</a> for more information</li>
+                            <li><span>Breakpoint</span>: the class where we hide the floating box</li>
+                            <li><span>Height</span>: the starting height of the box</li>
+                            <li><span>Width</span>: the starting width of the box</li>
+                            <li><span>HeightPercentance</span>: the collapse percentance height</li>
+                            <li><span>WidthPercentance</span>: the collapse percentance width</li>
+                            <li><span>HeightExpand</span>: the expand height</li>
+                            <li><span>WidthExpand</span>: the expand width</li>
+                            <li><span>Animate</span>: the expand-collapse animation</li>
+                            <li><span>Scrollbar</span>: see <a href="https://github.com/malihu/malihu-custom-scrollbar-plugin" target="_blank">mCustomScrollbar</a> for more information</li>
                         </ul>
                     </article>
                     <article>
                         <header>
-                            <h2>Requirements</h2>
+                            <h2>Dependencies</h2>
                             <hr>
                         </header>
                         <ul>
                             <li>jQuery</li>
                             <li>mCustomScrollbar</li>
-                            <li>font awesome</li>
+                            <li>Font Awesome</li>
                         </ul>
                     </article>
-                    <article>
+                    <article id="floativ-break">
                         <header>
                             <h2>Library compatibility</h2>
                             <hr>
                         </header>
                         <p>This library works for IE8+, Mozilla Firefox 4+, Google Chrome 11+, Opera 10+, Safari 4+.</p>
                     </article>
-                    <article id="floativ-break">
+                    <article>
                         <header>
                             <h2>TODO</h2>
                             <hr>
                         </header>
                         <ul>
-                            <li>add proper readme</li>
-                            <li>create git-site for the library</li>
-                            <li>replace lorem ipsum text with proper readme/guidelines</li>
-                            <li>test support for most common browsers</li>
+                            <li>Improve library with parameters</li>
                         </ul>
                     </article>
                 </section>
