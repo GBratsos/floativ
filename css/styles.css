@@ -1,9 +1,19 @@
 /*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
 
 html {
-    color: #222;
+    color: #212121;
     font-size: 1em;
     line-height: 1.4;
+    background: #FAFAFA;
+}
+
+p,
+li {
+    color: #727272;
+}
+
+a {
+    color: inherit;
 }
 
 ::-moz-selection {
@@ -20,7 +30,7 @@ hr {
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #B6B6B6;
     margin: 1em 0;
     padding: 0;
 }
@@ -46,7 +56,7 @@ textarea {
 
 .browserupgrade {
     margin: 0.2em 0;
-    background: #ccc;
+    background: #B6B6B6;
     color: #000;
     padding: 0.2em 0;
 }
@@ -62,15 +72,18 @@ body {
     width: 90%;
     margin: 0 5%;
 }
-/* ===================
-    ALL: Orange Theme
-   =================== */
 
 .header-container,
-.footer-container,
 .main aside {
-    background: #f16529;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    background: #03A9F4;
+    box-shadow: 0 0 20px #727272;
+    border-top: 10px solid #0288D1;
+}
+
+.footer-container {
+    border-bottom: 10px solid #0288D1;
+    background: #03A9F4;
+    box-shadow: 0 0 20px #727272;
 }
 
 .title {
@@ -97,13 +110,13 @@ nav a {
     text-align: center;
     text-decoration: none;
     font-weight: bold;
-    color: white;
+    color: #fff;
     background: #e44d26;
 }
 
 nav a:hover,
 nav a:visited {
-    color: white;
+    color: #fff;
 }
 
 nav a:hover {
@@ -122,13 +135,13 @@ nav a:hover {
 }
 
 .main aside {
-    color: white;
+    color: #fff;
     padding: 0px 5% 10px;
 }
 
 .footer-container footer {
-    color: white;
-    padding: 20px 0;
+    color: #fff;
+    padding: 10px 0;
 }
 
 footer aside:nth-child(1) {
@@ -136,7 +149,16 @@ footer aside:nth-child(1) {
     width: 80%
 }
 
-footer aside:nth-child(2) {}
+footer article p,
+footer article p a {
+    color: #b3e5fc;
+    text-decoration: none;
+}
+
+footer article p a:hover,
+footer article p a:focus {
+    color: #fff;
+}
 /* ===============
     ALL: IE Fixes
    =============== */
@@ -188,7 +210,7 @@ footer aside:nth-child(2) {}
     
     .header-container,
     .main aside {
-        box-shadow: 0 5px 10px #aaa;
+        box-shadow: 0 5px 10px #727272;
     }
     /* ============
     WIDE: Menu
