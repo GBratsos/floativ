@@ -18,7 +18,7 @@
 .floativ-head {
     width: 21px;
     position: absolute;
-    right: 6px;
+    right: -30px;
     top: 8px;
     z-index: 1;
 }
@@ -41,4 +41,12 @@
 .floativ-body {
     margin-top: 10px;
     margin-left: 10px;
+}
+.mCSB_scrollTools .mCSB_draggerContainer {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: auto;
 }
