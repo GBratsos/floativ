@@ -49,14 +49,8 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
-.floativ-body {
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
 .mCustomScrollBox {
     /* contains plugin's markup */
-    
     position: relative;
     overflow: hidden;
     max-width: 100%;
@@ -66,8 +60,6 @@
 }
 
 .mCSB_container {
-    /* contains the original content */
-    
     position: absolute;
     overflow: hidden;
     width: 100%;
