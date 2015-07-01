@@ -20,7 +20,5 @@ This library works for IE8+, Mozilla Firefox 4+, Google Chrome 11+, Opera 10+, S
 [GPL-3.0](LICENSE)
 
 ## TODO ##
-- add proper readme
 - create git-site for the library
 - replace lorem ipsum text with proper readme/guidelines
-- test support for most common browsers
