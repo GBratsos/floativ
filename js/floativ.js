@@ -12,22 +12,23 @@
         floativ: function(options) {
             var defaults = {
                 breakPoint: "#floativ-break", // The class where we hide our element
-                height: 250, // Height of the float box
-                width: 500, // Width of the float box
-                heightPercentance: 0.33, // Visible height percentage of the box
-                widthPercentance: 0.33, // Visible width percentage of the box
-                heightExpand: 160, // Expandable height
-                widthExpand: 160, // Expandable width
+                height: "250px", // Height of the float box
+                width: "auto", // Width of the float box
+                offsetPercentance: 0.33, // Adds offset to the breaking point
+                heightExpand: "160px", // Expandable height
+                widthExpand: "160px", // Expandable width
                 animate: "slow", // Animation method
                 scrollbar: { // mCustomScrollbar (default) options
                     theme: "dark-3"
                 }
             };
 
-            defaults.floativHeight = $(window).height() * defaults.heightPercentance; // Calculate floativ height
-            defaults.floativHeight_expand = $(window).height() - defaults.heightExpand; // Calculate floativ expand height
-
             var o = $.extend(defaults, options); // Merge defaults with user inputs
+
+            // Calculate offsets and expands
+            o.floativOffsetPercentance = $(window).height() * o.OffsetPercentance;
+            o.floativHeight_expand = (parseInt(o.height) + parseInt(o.heightExpand)) + "px";
+            o.floativWidth_expand = (o.width !== "auto") ? parseInt(o.width) + parseInt(o.widthExpand) : "auto" ;
 
             // Do it for every element that matches selector
             this.each(function(){
@@ -39,22 +40,20 @@
                 floativLoad();
 
                 function floativLoad(){
-                    floativHeight = $(window).height() / (5.5);
-                    $this.css({"height": floativHeight + "px"});
+                    $this.css({height: o.height, width: o.width});
                 }
 
                 function floativToggle(){
-                    var settings = $this.data("floativ");
-                    if ($(settings.breakPoint).offset() !== null) {
-                        if ($(window).scrollTop() > (($(settings.breakPoint).offset().top - $(window).height()) + settings.floativHeight)) {
-                            $this.css({"display": "none"});
+                    if ($(o.breakPoint).offset() !== null) {
+                        // Calculate at which point should the float box hide
+                        if ($(window).scrollTop() > (($(o.breakPoint).offset().top - $(window).height()) + o.floativOffsetPercentance)) {
+                            $this.css({display: "none"});
                         } else {
-                            $this.css({"display": "block"});
+                            $this.css({display: "block"});
                         }
                     }
                 }
 
-                // Attach a handler for end-of-box
                 $('.floativ-body', $this).bind('mousewheel DOMMouseScroll', function (e) {
                     var delta = e.wheelDelta || -e.detail;
                     this.scrollTop += (delta < 0 ? 1 : -1) * 30;
@@ -66,7 +65,7 @@
                     e.preventDefault();
                     $(".floativ-collapse", $this).show();
                     $(".floativ-expand", $this).hide();
-                    $this.animate({"height": o.floativHeight_expand + "px"}, o.animate, function() {
+                    $this.animate({height: o.floativHeight_expand, width: o.floativWidth_expand}, o.animate, function() {
                         $this.mCustomScrollbar("update");
                     });
                 });
@@ -76,13 +75,13 @@
                     e.preventDefault();
                     $(".floativ-expand", $this).show();
                     $(".floativ-collapse", $this).hide();
-                    $this.animate({"height": o.floativHeight + "px"}, o.animate, function() {
+                    $this.animate({height: o.height, width: o.width}, o.animate, function() {
                         $this.mCustomScrollbar("update");
                     });
                 });
 
                 $(window).resize(function () {
-                    loadFloativ();
+                    floativLoad();
                     setTimeout(function () {
                         floativToggle();
                     }, 1000);
@@ -93,7 +92,7 @@
                 });
 
                 setTimeout(function () {
-                    $this.css({"display": "none"});
+                    $this.css({display: "none"});
                 }, 50);
 
                 setTimeout(function () {
