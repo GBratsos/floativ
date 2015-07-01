@@ -66,23 +66,19 @@ body {
     ALL: Orange Theme
    =================== */
 
-.header-container {
-    border-bottom: 20px solid #e44d26;
-}
-
-.footer-container,
-.main aside {
-    border-top: 20px solid #e44d26;
-}
-
 .header-container,
 .footer-container,
 .main aside {
     background: #f16529;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
 .title {
-    color: white;
+    color: #fff;
+}
+
+.title span {
+    font-size: 0.5em;
 }
 /* ==============
     MOBILE: Menu
@@ -134,6 +130,13 @@ nav a:hover {
     color: white;
     padding: 20px 0;
 }
+
+footer aside:nth-child(1) {
+    float: left;
+    width: 80%
+}
+
+footer aside:nth-child(2) {}
 /* ===============
     ALL: IE Fixes
    =============== */
@@ -222,6 +225,10 @@ nav a:hover {
         /* 1140px - 10% for margins */
         
         margin: 0 auto;
+    }
+    .main article {
+        float: left;
+        width: 100%;
     }
 }
 /* ==========================================================================
