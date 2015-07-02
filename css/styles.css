@@ -25,8 +25,6 @@ hr {
     margin: 1em 0;
     padding: 0;
 }
-
-
 /* ===== Initializr Styles ==================================================
    Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
    ========================================================================== */
@@ -48,7 +46,6 @@ body {
 .title span {
     font-size: 0.5em;
 }
-
 /* ==============
     MOBILE: Main
    ============== */
@@ -65,7 +62,6 @@ body {
     color: #fff;
     padding: 0px 5% 10px;
 }
-
 /* ===============
     ALL: IE Fixes
    =============== */
@@ -73,8 +69,6 @@ body {
 .ie7 .title {
     padding-top: 20px;
 }
-
-
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
@@ -93,16 +87,11 @@ a:focus {
     color: #212121;
 }
 
-ul li span, p span {
+ul li span,
+p span {
     color: #212121;
     font-weight: bold;
 }
-
-.fa {
-    color: #ffc107;
-}
-
-
 /**** HEADER ****/
 
 .header-container {
@@ -110,8 +99,6 @@ ul li span, p span {
     box-shadow: 0 0 20px #727272;
     border-top: 10px solid #0288D1;
 }
-
-
 /**** FOOTER ****/
 
 .footer-container {
@@ -130,13 +117,16 @@ footer aside {
     vertical-align: top;
     text-align: center;
 }
+
 footer aside:nth-child(1) {
     width: 30%;
 }
+
 footer aside:nth-child(2) {
     width: 30%;
-    margin-left:10%
+    margin-left: 10%
 }
+
 footer aside:nth-child(3) {
     float: right;
 }
@@ -144,23 +134,34 @@ footer aside:nth-child(3) {
 footer article ul {
     padding: 0;
 }
+
 footer article ul>li {
     list-style: none;
 }
 
 footer article ul>li a,
-footer article p a{
+footer article p a {
     color: #b3e5fc;
     text-decoration: none;
 }
+
 article ul>li a:hover,
 article p a:hover,
 article p a:focus {
     color: #fff;
 }
+/**** FLOATIV CSS ****/
 
+.floativ-body {
+    background: #03A9F4;
+    border-bottom: 10px solid #0288D1;
+    margin: 0 auto;
+}
 
-
+.floativ-body .footer-container {
+    box-shadow: none;
+    border: 0;
+}
 /* ==========================================================================
    Media Queries
    ========================================================================== */
@@ -174,7 +175,7 @@ article p a:focus {
         float: left;
         width: 57%;
     }
-        footer aside {
+    footer aside {
         width: 100%;
     }
 }
@@ -195,8 +196,6 @@ article p a:focus {
         width: 100%;
     }
 }
-
-
 /* ==========================================================================
    Helper classes
    ========================================================================== */
