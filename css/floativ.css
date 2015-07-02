@@ -6,10 +6,12 @@
     left: 0;
 }
 
-.floativ-body {
+.floativ-wrapper {
     background: #fff;
     overflow: auto;
-    /*padding: 18px;*/
+}
+.floativ-body {
+    padding: 10px 25px 10px 5px;
 }
 
 .floativ-head {
@@ -38,4 +40,9 @@
     position: absolute;
     z-index: -1;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+/** Scrollbar **/
+#mCSB_1_scrollbar_vertical {
+    margin-top:10px;
 }

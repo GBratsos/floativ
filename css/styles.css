@@ -120,7 +120,7 @@ ul li span, p span {
     box-shadow: 0 0 20px #727272;
 }
 
-.footer-container footer {
+.footer-container {
     color: #fff;
     padding: 10px 0;
 }
@@ -153,9 +153,9 @@ footer article p a{
     color: #b3e5fc;
     text-decoration: none;
 }
-footer article ul>li a:hover,
-footer article p a:hover,
-footer article p a:focus {
+article ul>li a:hover,
+article p a:hover,
+article p a:focus {
     color: #fff;
 }
 

@@ -3,7 +3,7 @@
  * displayed while browsing a web page. This floating box disappears when the user reaches an element with
  * a specific id.
  *
- * Version 1.0.4
+ * Version 1.1.0
  *
  */
 (function ($) {
@@ -35,7 +35,7 @@
                 var $this = $(this); // Assign current element to variable
                 $this.data("floativ", o); // Save settings
                 $(".floativ-collapse", $this).hide(); // Hide minus-collapse sign
-                $(".floativ-body", $this).css({height: o.height}).mCustomScrollbar(o.scrollbar); // Apply mCustomScrollbar on element
+                $(".floativ-wrapper", $this).css({height: o.height, width: o.width}).mCustomScrollbar(o.scrollbar); // Apply mCustomScrollbar on element
 
                 floativLoad(); // Start the plugin
 
@@ -66,8 +66,8 @@
                     $(".floativ-collapse", $this).show();
                     $(".floativ-expand", $this).hide();
                     $this.animate({height: o.floativHeight_expand, width: o.floativWidth_expand}, o.animate);
-                    $(".floativ-body", $this).animate({height: o.floativHeight_expand, width: o.floativWidth_expand}, o.animate, function() {
-                        $(".floativ-body", $this).mCustomScrollbar("update");
+                    $(".floativ-wrapper", $this).animate({height: o.floativHeight_expand, width: o.floativWidth_expand}, o.animate, function() {
+                        $(".floativ-wrapper", $this).mCustomScrollbar("update");
                     });
                 });
 
@@ -77,8 +77,8 @@
                     $(".floativ-expand", $this).show();
                     $(".floativ-collapse", $this).hide();
                     $this.animate({height: o.height, width: o.width}, o.animate);
-                    $(".floativ-body", $this).animate({height: o.height, width: o.width}, o.animate, function() {
-                        $(".floativ-body", $this).mCustomScrollbar("update");
+                    $(".floativ-wrapper", $this).animate({height: o.height, width: o.width}, o.animate, function() {
+                        $(".floativ-wrapper", $this).mCustomScrollbar("update");
                     });
                 });
 
