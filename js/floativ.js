@@ -66,6 +66,7 @@
                     $(".floativ-collapse", $this).show();
                     $(".floativ-expand", $this).hide();
                     $this.animate({height: o.floativHeight_expand, width: o.floativWidth_expand}, o.animate, function() {
+                        $('#mCSB_1_container').css({top: ""});
                         $this.mCustomScrollbar("update");
                     });
                 });
@@ -76,6 +77,7 @@
                     $(".floativ-expand", $this).show();
                     $(".floativ-collapse", $this).hide();
                     $this.animate({height: o.height, width: o.width}, o.animate, function() {
+                          $('#mCSB_1_container').css({top: ""});
                         $this.mCustomScrollbar("update");
                     });
                 });
