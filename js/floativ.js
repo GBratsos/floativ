@@ -12,9 +12,9 @@
         floativ: function(options) {
             var defaults = {
                 breakPoint: "#floativ-break", // The class where we hide our element
-                height: "250px", // Height of the float box
+                height: "100px", // Height of the float box
                 width: "auto", // Width of the float box
-                offsetPercentance: 0.33, // Adds offset to the breaking point
+                offsetPercentage: 0.33, // Adds offset to the breaking point
                 heightExpand: "160px", // Expandable height
                 widthExpand: "160px", // Expandable width
                 animate: "slow", // Animation method
@@ -26,7 +26,7 @@
             var o = $.extend(defaults, options); // Merge defaults with user inputs
 
             // Calculate offsets and expands
-            o.floativOffsetPercentance = $(window).height() * o.OffsetPercentance;
+            o.floativOffsetPercentage = $(window).height() * o.offsetPercentage;
             o.floativHeight_expand = (parseInt(o.height) + parseInt(o.heightExpand)) + "px";
             o.floativWidth_expand = (o.width !== "auto") ? parseInt(o.width) + parseInt(o.widthExpand) : "auto" ;
 
@@ -37,7 +37,7 @@
                 $(".floativ-collapse", $this).hide(); // Hide minus-collapse sign
                 $this.mCustomScrollbar(o.scrollbar); // Apply mCustomScrollbar on element
 
-                floativLoad();
+                floativLoad(); // Start the plugin
 
                 function floativLoad(){
                     $this.css({height: o.height, width: o.width});
@@ -46,7 +46,7 @@
                 function floativToggle(){
                     if ($(o.breakPoint).offset() !== null) {
                         // Calculate at which point should the float box hide
-                        if ($(window).scrollTop() > (($(o.breakPoint).offset().top - $(window).height()) + o.floativOffsetPercentance)) {
+                        if ($(window).scrollTop() > ($(o.breakPoint).offset().top - $(window).height() + o.floativOffsetpercentage)) {
                             $this.css({display: "none"});
                         } else {
                             $this.css({display: "block"});
