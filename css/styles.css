@@ -6,17 +6,14 @@ html {
     line-height: 1.4;
     background: #FAFAFA;
 }
-
 ::-moz-selection {
     background: #b3d4fc;
     text-shadow: none;
 }
-
 ::selection {
     background: #b3d4fc;
     text-shadow: none;
 }
-
 hr {
     display: block;
     height: 1px;
@@ -25,6 +22,7 @@ hr {
     margin: 1em 0;
     padding: 0;
 }
+
 /* ===== Initializr Styles ==================================================
    Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
    ========================================================================== */
@@ -32,20 +30,18 @@ hr {
 body {
     font: 16px/26px Helvetica, Helvetica Neue, Arial;
 }
-
 .wrapper {
     width: 90%;
     margin: 0 5%;
 }
-
 .title {
     color: #fff;
     float: left;
 }
-
 .title span {
     font-size: 0.5em;
 }
+
 /* ==============
     MOBILE: Main
    ============== */
@@ -53,15 +49,14 @@ body {
 .main {
     padding: 30px 0;
 }
-
 .main article h1 {
     font-size: 2em;
 }
-
 .main aside {
     color: #fff;
     padding: 0px 5% 10px;
 }
+
 /* ===============
     ALL: IE Fixes
    =============== */
@@ -69,6 +64,7 @@ body {
 .ie7 .title {
     padding-top: 20px;
 }
+
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
@@ -77,21 +73,19 @@ p,
 li {
     color: #727272;
 }
-
 a {
     color: inherit;
 }
-
 a:hover,
 a:focus {
     color: #212121;
 }
-
 ul li span,
 p span {
     color: #212121;
     font-weight: bold;
 }
+
 /**** HEADER ****/
 
 .header-container {
@@ -99,57 +93,57 @@ p span {
     box-shadow: 0 0 20px #727272;
     border-top: 10px solid #0288D1;
 }
+.header-container h2 {
+    text-align: center;
+    color: #fff;
+    float: right;
+}
+
 /**** FOOTER ****/
 
 .footer-container {
     border-bottom: 10px solid #0288D1;
     background: #03A9F4;
     box-shadow: 0 0 20px #727272;
-}
-
-.footer-container {
     color: #fff;
     padding: 10px 0;
+    float: left;
+    width: 100%;
+    height: auto;
 }
-
 footer aside {
-    display: inline-block;
     vertical-align: top;
     text-align: center;
 }
-
 footer aside:nth-child(1) {
     width: 30%;
+    float: left;
 }
-
 footer aside:nth-child(2) {
     width: 30%;
-    margin-left: 10%
+    margin-left: 10%;
+    float: left;
 }
-
 footer aside:nth-child(3) {
     float: right;
 }
-
 footer article ul {
     padding: 0;
 }
-
 footer article ul>li {
     list-style: none;
 }
-
 footer article ul>li a,
 footer article p a {
     color: #b3e5fc;
     text-decoration: none;
 }
-
-article ul>li a:hover,
-article p a:hover,
-article p a:focus {
+footer article ul>li a:hover,
+footer article p a:hover,
+footer article p a:focus {
     color: #fff;
 }
+
 /**** FLOATIV CSS ****/
 
 .shadow {
@@ -157,48 +151,55 @@ article p a:focus {
     z-index: -1;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }
-
-.center-floativ {
-    margin-left: 425px !important;
-}
-
 .floativ-body {
     background: #03A9F4;
     border-bottom: 10px solid #0288D1;
     margin: 0 auto;
 }
-
 .floativ-body .footer-container {
     box-shadow: none;
     border: 0;
 }
+.mCSB_inside > .mCSB_container {
+    background: #03A9F4;
+}
+.floativ-body {
+    border: 0;
+}
+
 /* ==========================================================================
    Media Queries
    ========================================================================== */
 
 @media only screen and (max-width: 768px) {
-    /* ============
-    WIDE: Main
-   ============ */
-    
     .main article {
         float: left;
-        width: 57%;
-    }
-    footer aside {
         width: 100%;
     }
+    footer aside:nth-child(1),
+    footer aside:nth-child(2),
+    footer aside:nth-child(3) {
+        width: 100%;
+        float: left;
+        margin: 0 auto;
+    }
+    .mCSB_inside > .mCSB_container {
+        background: #03A9F4;
+    }
+    .floativ-body {
+        border: 0;
+    }
+    .header-container h2 {
+        float: left;
+    }
 }
-
 @media only screen and (min-width: 1140px) {
     /* ===============
     Maximal Width
    =============== */
-    
     .wrapper {
         width: 1026px;
         /* 1140px - 10% for margins */
-        
         margin: 0 auto;
     }
     .main article {
@@ -206,6 +207,7 @@ article p a:focus {
         width: 100%;
     }
 }
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -215,11 +217,9 @@ article p a:focus {
     content: " ";
     display: table;
 }
-
 .clearfix:after {
     clear: both;
 }
-
 .clearfix {
     *zoom: 1;
 }

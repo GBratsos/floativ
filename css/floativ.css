@@ -4,24 +4,22 @@
     z-index: 9999;
     bottom: 0;
     left: 0;
+    float: left;
+    width: 100% !important;
 }
-
 .floativ-wrapper {
     background: #fff;
     overflow: auto;
 }
-
 .floativ-body {
     padding: 10px 25px 10px 5px;
 }
-
 .floativ-head {
     width: 21px;
     position: absolute;
     right: -3px;
     top: 8px;
 }
-
 .floativ-head span i {
     width: 21px;
     height: 21px;
@@ -30,14 +28,18 @@
     text-decoration: none;
     z-index: 1000!important;
 }
-
 .floativ-expand,
 .floativ-collapse {
     position: fixed;
     cursor: pointer;
 }
+
 /** Scrollbar **/
 
+.mCSB_inside > .mCSB_container {
+    margin-right: 0;
+}
 #mCSB_1_scrollbar_vertical {
-    margin-top: 10px;
+    margin-top: 30px;
+    margin-right: 2px;
 }
