@@ -10,6 +10,7 @@
     background: #fff;
     overflow: auto;
 }
+
 .floativ-body {
     padding: 10px 25px 10px 5px;
 }
@@ -35,18 +36,8 @@
     position: fixed;
     cursor: pointer;
 }
-
-.shadow {
-    position: absolute;
-    z-index: -1;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-}
-
-.center-floativ {
-    margin-left: 425px!important;
-}
-
 /** Scrollbar **/
+
 #mCSB_1_scrollbar_vertical {
-    margin-top:10px;
+    margin-top: 10px;
 }
