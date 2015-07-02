@@ -1,83 +1,112 @@
-$(document).ready(function () {
-    'use strict';
-    var winHeight = $(window).height();
-    var isiHeight = winHeight * (0.33);
-    var isiHeight_expand = winHeight - 160; // winHeight * (0.55);
+/**
+ * floativ is a floating box at the end of the screen that contains text, among other things, which can be
+ * displayed while browsing a web page. This floating box disappears when the user reaches an element with
+ * a specific id.
+ *
+ * Version 1.0.4
+ *
+ */
+(function ($) {
 
-    $(".isi-head a.colapse-close").hide();
-    $(".isi-head a.colapse-close").hide();
-    $(".content01").mCustomScrollbar();
+    $.fn.extend({
+        floativ: function(options) {
+            var defaults = {
+                breakPoint: "#floativ-break", // The class where we hide our element
+                height: "100px", // Height of the float box
+                width: "auto", // Width of the float box
+                offsetPercentage: 0.33, // Adds offset to the breaking point
+                heightExpand: "160px", // Expandable height
+                widthExpand: "160px", // Expandable width
+                animate: "slow", // Animation method
+                scrollbar: { // mCustomScrollbar (default) options
+                    theme: "dark-3"
+                }
+            };
 
-    $(".content01").bind("mousewheel DOMMouseScroll", function (e) {
-        var delta = e.wheelDelta || -e.detail;
-        this.scrollTop += (delta < 0 ? 1 : -1) * 30;
-        e.preventDefault();
-    });
+            var o = $.extend(defaults, options); // Merge defaults with user inputs
 
-    $(".isi-head a.expand-open").click(function (e) {
-        e.preventDefault();
-        $(".isi-head a.colapse-close").show();
-        $(this).hide();
-        $(".scroll-for-line").hide();
-        isiHeight_expand = $(window).height() - 160;
-        $(".content01").animate({
-            height: isiHeight_expand
-        }, "slow", function () {
-            $(this).mCustomScrollbar("update");
-        });
-        $(".mCustomScrollBox > .mCSB_scrollTools").css({ "height": "92%" });
-        $(".float-isi .isi_wrapper").css({ "margin": "0 25px 0 25px" });
-    });
+            // Calculate offsets and expands
+            o.floativOffsetpercentage = $(window).height() * o.offsetPercentage;
+            o.floativHeight_expand = (parseInt(o.height) + parseInt(o.heightExpand)) + "px";
+            o.floativWidth_expand = (o.width !== "auto") ? parseInt(o.width) + parseInt(o.widthExpand) : "auto" ;
 
-    $(".isi-head a.colapse-close").click(function (e) {
-        e.preventDefault();
-        $(".isi-head a.expand-open, .scroll-for-line").show();
-        $(this).hide();
+            // Do it for every element that matches selector
+            this.each(function(){
+                var $this = $(this); // Assign current element to variable
+                $this.data("floativ", o); // Save settings
+                $(".floativ-collapse", $this).hide(); // Hide minus-collapse sign
+                $this.mCustomScrollbar(o.scrollbar); // Apply mCustomScrollbar on element
 
-        $(".content01").animate({
-            height: isiHeight
-        }, "slow", function () {
-            $(this).mCustomScrollbar("update");
-        });
-        $(".mCustomScrollBox > .mCSB_scrollTools").css({ "height": "87%" });
-        $(".float-isi .isi_wrapper").css({ "margin": "0 0px 0 25px" });
-    });
+                floativLoad(); // Start the plugin
 
-    function loadISI() {
-        isiHeight = $(window).height() / (5.5);
-        $(".content01").css({ "height": isiHeight });
-        $(".colapse-close").click();
-    }
+                function floativLoad(){
+                    $this.css({height: o.height, width: o.width});
+                }
 
-    function footerHideShow() {
-        var winHi = $(window).height() * (0.33);
-        if ($("#idfloatisi1").offset() !== null) {
-            if ($(window).scrollTop() > (($("#idfloatisi1").offset().top - $(window).height()) + winHi)) {
-                $("#idfloatisi").css({ "display": "none" });
-            } else {
-                $("#idfloatisi").css({ "display": "block" });
-            }
+                function floativToggle(){
+                    if ($(o.breakPoint).offset() !== null) {
+                        // Calculate at which point should the float box hide
+                        if ($(window).scrollTop() > ($(o.breakPoint).offset().top - $(window).height() + o.floativOffsetpercentage)) {
+                            $this.css({display: "none"});
+                        } else {
+                            $this.css({display: "block"});
+                        }
+                    }
+                }
+
+                $('.floativ-body', $this).bind('mousewheel DOMMouseScroll', function (e) {
+                    var delta = e.wheelDelta || -e.detail;
+                    this.scrollTop += (delta < 0 ? 1 : -1) * 30;
+                    e.preventDefault();
+                });
+
+                // Click expand button
+                $(".floativ-expand", $this).click(function (e) {
+                    e.preventDefault();
+                    $(".floativ-collapse", $this).show();
+                    $(".floativ-expand", $this).hide();
+                    $this.animate({height: o.floativHeight_expand, width: o.floativWidth_expand}, o.animate, function() {
+                        $this.mCustomScrollbar("update");
+                    });
+                });
+
+                //  Click collapse button
+                $(".floativ-collapse", $this).click(function (e) {
+                    e.preventDefault();
+                    $(".floativ-expand", $this).show();
+                    $(".floativ-collapse", $this).hide();
+                    $this.animate({height: o.height, width: o.width}, o.animate, function() {
+                        $this.mCustomScrollbar("update");
+                    });
+                });
+
+                $(window).resize(function () {
+                    floativLoad();
+                    setTimeout(function () {
+                        floativToggle();
+                    }, 1000);
+                });
+
+                $(window).scroll(function () {
+                    floativToggle();
+                });
+
+                setTimeout(function () {
+                    $this.css({display: "none"});
+                }, 50);
+
+                setTimeout(function () {
+                    floativToggle();
+                }, 1000);
+            });
+
+            // Maintain chainablitiy
+            return this;
         }
-    }
-
-    loadISI();
-
-    $(window).resize(function () {
-        loadISI();
-        setTimeout(function () {
-            footerHideShow();
-        }, 1000);
     });
 
-    $(window).scroll(function () {
-        footerHideShow();
+    $.fn.extend({
+        floativ: $.fn.floativ
     });
 
-    setTimeout(function () {
-        $("idfloatisi").css({ "display": "none" });
-    }, 50);
-
-    setTimeout(function () {
-        footerHideShow();
-    }, 1000);
-});
+})(jQuery);

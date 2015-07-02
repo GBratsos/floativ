@@ -1,0 +1,61 @@
+#floativ {
+    position: fixed;
+    width: 100%;
+    margin: 0 auto;
+    z-index: 9999;
+    bottom: 0;
+    left: 0;
+}
+
+.floativ-container {
+    background: #fff;
+    box-shadow: 0 0 12px #A6A5A6;
+    position: relative;
+    overflow: auto;
+    margin: auto;
+}
+
+.floativ-body {
+    padding: 18px 28px;
+}
+
+.floativ-head {
+    width: 21px;
+    position: absolute;
+    right: -3px;
+    top: 8px;
+    z-index: 1000!important;
+}
+
+.floativ-head span i {
+    width: 21px;
+    height: 21px;
+    display: block;
+    margin: 0 auto;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 1000!important;
+}
+
+.floativ-expand,
+.floativ-collapse {
+    position: fixed;
+    cursor: pointer;
+}
+
+.shadow {
+    position: absolute;
+    z-index: -1;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+/** Scrollbar & Expand/Collapse button **/
+
+.mCSB_container {
+    position: absolute;
+    width: 100%;
+}
+
+.mCSB_scrollTools .mCSB_draggerContainer {
+    top: 30px;
+}
