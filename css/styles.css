@@ -127,18 +127,33 @@ ul li span, p span {
 
 footer aside {
     display: inline-block;
+    vertical-align: top;
+    text-align: center;
 }
-
+footer aside:nth-child(1) {
+    width: 30%;
+}
+footer aside:nth-child(2) {
+    width: 30%;
+    margin-left:10%
+}
 footer aside:nth-child(3) {
     float: right;
 }
 
-footer article p,
-footer article p a {
+footer article ul {
+    padding: 0;
+}
+footer article ul>li {
+    list-style: none;
+}
+
+footer article ul>li a,
+footer article p a{
     color: #b3e5fc;
     text-decoration: none;
 }
-
+footer article ul>li a:hover,
 footer article p a:hover,
 footer article p a:focus {
     color: #fff;
