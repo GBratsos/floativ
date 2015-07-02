@@ -26,7 +26,7 @@
             var o = $.extend(defaults, options); // Merge defaults with user inputs
 
             // Calculate offsets and expands
-            o.floativOffsetPercentage = $(window).height() * o.offsetPercentage;
+            o.floativOffsetpercentage = $(window).height() * o.offsetPercentage;
             o.floativHeight_expand = (parseInt(o.height) + parseInt(o.heightExpand)) + "px";
             o.floativWidth_expand = (o.width !== "auto") ? parseInt(o.width) + parseInt(o.widthExpand) : "auto" ;
 
