@@ -35,7 +35,7 @@
                 var $this = $(this); // Assign current element to variable
                 $this.data("floativ", o); // Save settings
                 $(".floativ-collapse", $this).hide(); // Hide minus-collapse sign
-                $this.mCustomScrollbar(o.scrollbar); // Apply mCustomScrollbar on element
+                $(".floativ-body", $this).css({height: o.height}).mCustomScrollbar(o.scrollbar); // Apply mCustomScrollbar on element
 
                 floativLoad(); // Start the plugin
 
@@ -65,9 +65,9 @@
                     e.preventDefault();
                     $(".floativ-collapse", $this).show();
                     $(".floativ-expand", $this).hide();
-                    $this.animate({height: o.floativHeight_expand, width: o.floativWidth_expand}, o.animate, function() {
-                        $('#mCSB_1_container').css({top: ""});
-                        $this.mCustomScrollbar("update");
+                    $this.animate({height: o.floativHeight_expand, width: o.floativWidth_expand}, o.animate);
+                    $(".floativ-body", $this).animate({height: o.floativHeight_expand, width: o.floativWidth_expand}, o.animate, function() {
+                        $(".floativ-body", $this).mCustomScrollbar("update");
                     });
                 });
 
@@ -76,9 +76,9 @@
                     e.preventDefault();
                     $(".floativ-expand", $this).show();
                     $(".floativ-collapse", $this).hide();
-                    $this.animate({height: o.height, width: o.width}, o.animate, function() {
-                          $('#mCSB_1_container').css({top: ""});
-                        $this.mCustomScrollbar("update");
+                    $this.animate({height: o.height, width: o.width}, o.animate);
+                    $(".floativ-body", $this).animate({height: o.height, width: o.width}, o.animate, function() {
+                        $(".floativ-body", $this).mCustomScrollbar("update");
                     });
                 });
 
