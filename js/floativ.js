@@ -18,7 +18,9 @@
                 heightExpand: "160px", // Expandable height
                 widthExpand: "160px", // Expandable width
                 animate: "slow", // Animation method
+                customClass: null, // Extra class for the parent object
                 scrollbar: { // mCustomScrollbar (default) options
+                    alwaysShowScrollbar: 1,
                     theme: "dark-3"
                 }
             };
@@ -40,7 +42,8 @@
                 floativLoad(); // Start the plugin
 
                 function floativLoad(){
-                    $this.css({height: o.height, width: o.width});
+                    $this.css({height: o.height, width: o.width})
+                    if (o.customClass !== null) $this.addClass(o.customClass);
                 }
 
                 function floativToggle(){
