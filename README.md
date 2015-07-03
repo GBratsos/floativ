@@ -18,7 +18,3 @@ This library works for IE8+, Mozilla Firefox 4+, Google Chrome 11+, Opera 10+, S
 
 ## License
 [GPL-3.0](LICENSE)
-
-## TODO ##
-- create git-site for the library
-- replace lorem ipsum text with proper readme/guidelines
