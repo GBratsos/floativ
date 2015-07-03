@@ -3,7 +3,7 @@
  * displayed while browsing a web page. This floating box disappears when the user reaches an element with
  * a specific id.
  *
- * Version 1.1.0
+ * Version 1.1.1
  *
  */
 (function ($) {
@@ -19,10 +19,7 @@
                 widthExpand: "160px", // Expandable width
                 animate: "slow", // Animation method
                 customClass: null, // Extra class for the parent object
-                scrollbar: { // mCustomScrollbar (default) options
-                    alwaysShowScrollbar: 1,
-                    theme: "dark-3"
-                }
+                scrollbar: {} // mCustomScrollbar (default) options
             };
 
             var o = $.extend(defaults, options); // Merge defaults with user inputs

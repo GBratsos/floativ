@@ -118,7 +118,7 @@
             &lt;/span&gt;
         &lt;/div&gt;
         &lt;div class="floativ-body"&gt;
-            ... YOUR TEXT HERE ...
+            ... YOUR CONTENT HERE ...
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
@@ -130,9 +130,9 @@
                             <hr>
                         </header>
                         <ul>
-                            <li>jQuery</li>
-                            <li>mCustomScrollbar</li>
-                            <li>FontAwesome</li>
+                            <li><a href="https://github.com/jquery/jquery" target="_blank">jQuery</a></li>
+                            <li><a href="https://github.com/malihu/malihu-custom-scrollbar-plugin" target="_blank">mCustomScrollbar</a></li>
+                            <li><a href="https://github.com/FortAwesome/Font-Awesome" target="_blank">FontAwesome</a></li>
                         </ul>
                     </article>
                     <article id="floativ-break">
@@ -141,15 +141,6 @@
                             <hr>
                         </header>
                         <p>This library works for IE8+, Mozilla Firefox 4+, Google Chrome 11+, Opera 10+, Safari 4+.</p>
-                    </article>
-                    <article>
-                        <header>
-                            <h2>TODO</h2>
-                            <hr>
-                        </header>
-                        <ul>
-                            <li>Improve library with parameters</li>
-                        </ul>
                     </article>
                 </section>
             </div>
@@ -258,8 +249,12 @@
     <script src="js/floativ.js"></script>
     <script>
         $("#floativ").floativ({
-            heightExpand: "113px",
-            customClass: "shadow center-floativ"
+            heightExpand: "93px",
+            customClass: "shadow center-floativ",
+            scrollbar: {
+                theme: "dark-3",
+                alwaysShowScrollbar: 1
+            }
         });
     </script>
 
