@@ -1,6 +1,8 @@
 # floativ
 floativ is a responsive floating scroll-box at the bottom of the screen of your site that contains text, among other things, which can be displayed while browsing a web page. This floating scroll-box disappears when the user reaches an element with a specific id.
 
+**See a working demo [here](http://gbratsos.github.io/floativ).**
+
 ## Installation
 1. Download and install [NodeJS](https://nodejs.org/)
 2. Clone or Download project straight from [GitHub](https://github.com/GBratsos/floativ).
