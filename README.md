@@ -34,7 +34,7 @@ You can also specify parameters, such as:
 </div>
 ```
 
-## Dependecnies
+## Dependencies
 * [jQuery](https://github.com/jquery/jquery)
 * [mCustomScrollbar](https://github.com/malihu/malihu-custom-scrollbar-plugin)
 * [FontAwesome](https://github.com/FortAwesome/Font-Awesome)
