@@ -12,14 +12,14 @@
         floativ: function(options) {
             var defaults = {
                 breakPoint: "#floativ-break", // The class where we hide our element
-                height: "100px", // Height of the float box
-                width: "auto", // Width of the float box
-                offsetPercentage: 0.33, // Adds offset to the breaking point
-                heightExpand: "160px", // Expandable height
-                widthExpand: "160px", // Expandable width
-                animate: "slow", // Animation method
-                customClass: null, // Extra class for the parent object
-                scrollbar: {} // mCustomScrollbar (default) options
+                height: "100px",              // Height of the float box
+                width: "auto",                // Width of the float box
+                offsetPercentage: 0.33,       // Adds offset to the breaking point
+                heightExpand: "160px",        // Expandable height
+                widthExpand: "160px",         // Expandable width
+                animate: "slow",              // Animation method
+                customClass: null,            // Extra class for the parent object
+                scrollbar: {}                 // mCustomScrollbar (default) options
             };
 
             var o = $.extend(defaults, options); // Merge defaults with user inputs
@@ -31,15 +31,24 @@
 
             // Do it for every element that matches selector
             this.each(function(){
-                var $this = $(this); // Assign current element to variable
+                var $this = $(this),
+                    collapseBtn = $(".floativ-collapse", $this),
+                    expandBtn = $(".floativ-expand", $this),
+                    floativWrapper = $(".floativ-wrapper", $this),
+                    floativBody = $('.floativ-body', $this),
+                    resizeTimeout;
+
                 $this.data("floativ", o); // Save settings
-                $(".floativ-collapse", $this).hide(); // Hide minus-collapse sign
-                $(".floativ-wrapper", $this).css({height: o.height, width: o.width}).mCustomScrollbar(o.scrollbar); // Apply mCustomScrollbar on element
+                collapseBtn.hide();       // Hide minus-collapse sign
+                floativWrapper.css({
+                    height: o.height,
+                    width: o.width
+                }).mCustomScrollbar(o.scrollbar); // Apply mCustomScrollbar on element
 
                 floativLoad(); // Start the plugin
 
                 function floativLoad(){
-                    $this.css({height: o.height, width: o.width})
+                    $this.css({height: o.height, width: o.width});
                     if (o.customClass !== null) $this.addClass(o.customClass);
                 }
 
@@ -54,44 +63,44 @@
                     }
                 }
 
-                $('.floativ-body', $this).bind('mousewheel DOMMouseScroll', function (e) {
+                floativBody.bind('mousewheel DOMMouseScroll', function (e) {
                     var delta = e.wheelDelta || -e.detail;
                     this.scrollTop += (delta < 0 ? 1 : -1) * 30;
                     e.preventDefault();
                 });
 
                 // Click expand button
-                $(".floativ-expand", $this).click(function (e) {
+                expandBtn.on('click', function (e) {
                     e.preventDefault();
-                    $(".floativ-collapse", $this).show();
-                    $(".floativ-expand", $this).hide();
+                    collapseBtn.show();
+                    expandBtn.hide();
                     $this.animate({height: o.floativHeight_expand, width: o.floativWidth_expand}, o.animate);
-                    $(".floativ-wrapper", $this).animate({height: o.floativHeight_expand, width: o.floativWidth_expand}, o.animate, function() {
-                        $(".floativ-wrapper", $this).mCustomScrollbar("update");
+                    floativWrapper.animate({height: o.floativHeight_expand, width: o.floativWidth_expand}, o.animate, function() {
+                        floativWrapper.mCustomScrollbar("update");
                     });
                 });
 
                 //  Click collapse button
-                $(".floativ-collapse", $this).click(function (e) {
+                collapseBtn.on('click', function (e) {
                     e.preventDefault();
-                    $(".floativ-expand", $this).show();
-                    $(".floativ-collapse", $this).hide();
+                    expandBtn.show();
+                    collapseBtn.hide();
                     $this.animate({height: o.height, width: o.width}, o.animate);
-                    $(".floativ-wrapper", $this).animate({height: o.height, width: o.width}, o.animate, function() {
-                        $(".floativ-wrapper", $this).mCustomScrollbar("update");
+                    floativWrapper.animate({height: o.height, width: o.width}, o.animate, function() {
+                        floativWrapper.mCustomScrollbar("update");
                     });
                 });
 
-                $(window).resize(function () {
-                    floativLoad();
-                    setTimeout(function () {
+                $(window).
+                    on('resize', function () {
+                        clearTimeout(resizeTimeout);
+                        resizeTimeout = setTimeout(function () {
+                            floativToggle();
+                        }, 500);
+                    }).
+                    on('scroll', function () {
                         floativToggle();
-                    }, 1000);
-                });
-
-                $(window).scroll(function () {
-                    floativToggle();
-                });
+                    });
 
                 setTimeout(function () {
                     $this.css({display: "none"});

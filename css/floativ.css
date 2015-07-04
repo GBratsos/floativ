@@ -1,7 +1,7 @@
-#floativ {
-    position: fixed;
+.floativ {
+    position: fixed !important;
     margin: 0 auto;
-    z-index: 9999;
+    z-index: 9999 !important;
     bottom: 0;
     left: 0;
     float: left;
