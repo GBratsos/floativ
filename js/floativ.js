@@ -3,7 +3,7 @@
  * displayed while browsing a web page. This floating box disappears when the user reaches an element with
  * a specific id.
  *
- * Version 1.1.1
+ * Version 1.1.2
  *
  */
 (function ($) {
