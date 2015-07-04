@@ -19,7 +19,7 @@ You can find and install floativ from npm [here](https://www.npmjs.com/package/f
 Put this `$("#floativ").floativ();` inside __script tags__ at the bottom of your HTML file.
 You can also specify parameters, such as:
 ```html
-<div id="#floativ">
+<div class="floativ" id="floativ">
     <div class="floativ-container">
         <div class="floativ-head">
             <span>
