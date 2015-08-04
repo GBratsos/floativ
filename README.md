@@ -29,8 +29,10 @@ You can also specify parameters, such as:
                 <i class="fa fa-minus-circle floativ-collapse" aria-hidden="true" aria-label="Collapse"></i>
             </span>
         </div>
-        <div class="floativ-body">
-            ... YOUR CONTENT HERE ...
+        <div class="floativ-wrapper">
+            <div class="floativ-body">
+                ... YOUR CONTENT HERE ...
+            </div>
         </div>
     </div>
 </div>
