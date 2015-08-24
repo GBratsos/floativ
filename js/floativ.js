@@ -3,7 +3,7 @@
  * displayed while browsing a web page. This floating box disappears when the user reaches an element with
  * a specific id.
  *
- * Version 1.1.3
+ * Version 1.1.4
  *
  */
 (function ($) {
@@ -40,6 +40,7 @@
 
                 $this.data("floativ", o); // Save settings
                 collapseBtn.hide();       // Hide minus-collapse sign
+                expandBtn.show();
                 floativWrapper.css({
                     height: o.height,
                     width: o.width
@@ -70,7 +71,7 @@
                 });
 
                 // Click expand button
-                expandBtn.on('click', function (e) {
+                expandBtn.off('click').on('click', function (e) {
                     e.preventDefault();
                     collapseBtn.show();
                     expandBtn.hide();
@@ -81,7 +82,7 @@
                 });
 
                 //  Click collapse button
-                collapseBtn.on('click', function (e) {
+                collapseBtn.off('click').on('click', function (e) {
                     e.preventDefault();
                     expandBtn.show();
                     collapseBtn.hide();
