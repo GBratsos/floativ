@@ -1,6 +1,6 @@
 {
   "name": "floativ",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "floativ is a floating scroll-box at the bottom of the screen of your site that contains text, among other things, which can be displayed while browsing a web page. This floating scroll-box disappears when the user reaches an element with a specific id.",
   "main": "floativ.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "text",
     "box"
   ],
-  "author": "Panagiotis Papadatis <hennett.afa@gmail.com>, George Bratsos <geobratsos@gmail.com>, George Raptis <georapbox@gmail.com>, Paraskevi Zygoura <fridayzzyg@gmail.com>",
+  "author": "Panagiotis Papadatis <hennett.afa@gmail.com>, George Bratsos <geobratsos@gmail.com>, Paraskevi Zygoura <fridayzzyg@gmail.com>, George Raptis <georapbox@gmail.com>",
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/GBratsos/floativ/issues"
