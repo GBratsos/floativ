@@ -55,7 +55,7 @@
                 }
 
                 function floativToggle(){
-                    if ($(o.breakPoint).offset() !== null) {
+                    if ($(o.breakPoint).length > 0 && $(o.breakPoint).offset() != null) {
                         // Calculate at which point should the float box hide
                         if ($(window).scrollTop() > ($(o.breakPoint).offset().top - $(window).height() + o.floativOffsetpercentage)) {
                             $this.css({display: 'none'});
