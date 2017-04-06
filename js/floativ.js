@@ -3,21 +3,20 @@
  * displayed while browsing a web page. This floating box disappears when the user reaches an element with
  * a specific id.
  *
- * Version 1.1.5
+ * Version 1.1.6
  *
  */
 (function ($) {
-
     $.fn.extend({
-        floativ: function(options) {
+        floativ: function (options) {
             var defaults = {
-                breakPoint: "#floativ-break", // The class where we hide our element
-                height: "100px",              // Height of the float box
-                width: "auto",                // Width of the float box
+                breakPoint: '#floativ-break', // The class where we hide our element
+                height: '100px',              // Height of the float box
+                width: 'auto',                // Width of the float box
                 offsetPercentage: 0.33,       // Adds offset to the breaking point
-                heightExpand: "160px",        // Expandable height
-                widthExpand: "160px",         // Expandable width
-                animate: "slow",              // Animation method
+                heightExpand: '160px',        // Expandable height
+                widthExpand: '160px',         // Expandable width
+                animate: 'slow',              // Animation method
                 customClass: null,            // Extra class for the parent object
                 scrollbar: {}                 // mCustomScrollbar (default) options
             };
@@ -26,19 +25,19 @@
 
             // Calculate offsets and expands
             o.floativOffsetpercentage = $(window).height() * o.offsetPercentage;
-            o.floativHeight_expand = (parseInt(o.height) + parseInt(o.heightExpand)) + "px";
-            o.floativWidth_expand = (o.width !== "auto") ? parseInt(o.width) + parseInt(o.widthExpand) : "auto" ;
+            o.floativHeight_expand = (parseInt(o.height) + parseInt(o.heightExpand)) + 'px';
+            o.floativWidth_expand = (o.width !== 'auto') ? parseInt(o.width) + parseInt(o.widthExpand) : 'auto' ;
 
             // Do it for every element that matches selector
-            this.each(function(){
+            this.each(function () {
                 var $this = $(this),
-                    collapseBtn = $(".floativ-collapse", $this),
-                    expandBtn = $(".floativ-expand", $this),
-                    floativWrapper = $(".floativ-wrapper", $this),
+                    collapseBtn = $('.floativ-collapse', $this),
+                    expandBtn = $('.floativ-expand', $this),
+                    floativWrapper = $('.floativ-wrapper', $this),
                     floativBody = $('.floativ-body', $this),
                     resizeTimeout;
 
-                $this.data("floativ", o); // Save settings
+                $this.data('floativ', o); // Save settings
                 collapseBtn.hide();       // Hide minus-collapse sign
                 expandBtn.show();
                 floativWrapper.css({
@@ -50,16 +49,18 @@
 
                 function floativLoad(){
                     $this.css({height: o.height, width: o.width});
-                    if (o.customClass !== null) $this.addClass(o.customClass);
+                    if (o.customClass !== null) {
+                        $this.addClass(o.customClass);
+                    }
                 }
 
                 function floativToggle(){
                     if ($(o.breakPoint).offset() !== null) {
                         // Calculate at which point should the float box hide
                         if ($(window).scrollTop() > ($(o.breakPoint).offset().top - $(window).height() + o.floativOffsetpercentage)) {
-                            $this.css({display: "none"});
+                            $this.css({display: 'none'});
                         } else {
-                            $this.css({display: "block"});
+                            $this.css({display: 'block'});
                         }
                     }
                 }
@@ -76,8 +77,8 @@
                     collapseBtn.show();
                     expandBtn.hide();
                     $this.animate({height: o.floativHeight_expand, width: o.floativWidth_expand}, o.animate);
-                    floativWrapper.animate({height: o.floativHeight_expand, width: o.floativWidth_expand}, o.animate, function() {
-                        floativWrapper.mCustomScrollbar("update");
+                    floativWrapper.animate({height: o.floativHeight_expand, width: o.floativWidth_expand}, o.animate, function () {
+                        floativWrapper.mCustomScrollbar('update');
                     });
                 });
 
@@ -87,8 +88,8 @@
                     expandBtn.show();
                     collapseBtn.hide();
                     $this.animate({height: o.height, width: o.width}, o.animate);
-                    floativWrapper.animate({height: o.height, width: o.width}, o.animate, function() {
-                        floativWrapper.mCustomScrollbar("update");
+                    floativWrapper.animate({height: o.height, width: o.width}, o.animate, function () {
+                        floativWrapper.mCustomScrollbar('update');
                     });
                 });
 
@@ -104,7 +105,7 @@
                     });
 
                 setTimeout(function () {
-                    $this.css({display: "none"});
+                    $this.css({display: 'none'});
                 }, 50);
 
                 setTimeout(function () {
@@ -120,5 +121,4 @@
     $.fn.extend({
         floativ: $.fn.floativ
     });
-
 })(jQuery);
