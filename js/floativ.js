@@ -3,7 +3,7 @@
  * displayed while browsing a web page. This floating box disappears when the user reaches an element with
  * a specific id.
  *
- * Version 1.1.6
+ * Version 1.1.7
  *
  */
 (function ($) {
@@ -55,13 +55,15 @@
                 }
 
                 function floativToggle(){
-                    if ($(o.breakPoint).length > 0 && $(o.breakPoint).offset() != null) {
+                    try {
                         // Calculate at which point should the float box hide
                         if ($(window).scrollTop() > ($(o.breakPoint).offset().top - $(window).height() + o.floativOffsetpercentage)) {
                             $this.css({display: 'none'});
                         } else {
                             $this.css({display: 'block'});
                         }
+                    } catch (err) {
+                        $this.css({display: 'none'});
                     }
                 }
 
